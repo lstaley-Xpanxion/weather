@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE mapper PUBLIC '-//mybatis.org//DTD Mapper 3.0//EN'
+  'http://mybatis.org/dtd/mybatis-3-mapper.dtd'>
+
+<mapper namespace="com.weather.mapper.MeasurementMapper">
+
+	<resultMap id="MeasurmentResult" type="Measurement">
+		<id property="measurementId" column="measurement_id" />
+		<result property="stationName" column="station_name" />
+		<result property="measurementTimestamp"
+			column="measurement_time" javaType="java.sql.Timestamp" />
+		<result property="airTemp" column="air_temp" javaType="Double" />
+		<result property="wetBulbTemp" column="wet_bulb_temp" />
+		<result property="humidity" column="humidity" />
+		<result property="intervalRain" column="interval_rain" />
+		<result property="rainIntensity" column="rain_intensity" />
+		<result property="totalRain" column="total_rain" />
+		<result property="precipitaionType" column="preciptation_type" />
+		<result property="windDirection" column="wind_direction" />
+		<result property="windSpeed" column="wind_speed" />
+		<result property="maxWindSpeed" column="max_wind_speed" />
+		<result property="barometricPressure"
+			column="barometric_pressure" />
+		<result property="solarRadiation" column="solar_radiation" />
+		<result property="heading" column="heading" />
+		<result property="batteryLife" column="battery_life" />
+	</resultMap>
+
+
+	<insert id="insertMeasurement" parameterType="Measurement"
+		keyProperty="measurementId" keyColumn="measurement_id">
+		INSERT INTO station_measurements(station_name, measurement_time, air_temp,
+		wet_bulb_temp, humidity, rain_intensity, interval_rain, total_rain, preciptation_type,
+		wind_direction, wind_speed, max_wind_speed, barometric_pressure,
+		solar_radiation, heading, battery_life)
+		VALUES(#{stationName}, #{measurementTimestamp}, #{airTemp}, #{wetBulbTemp}, #{humidity}, #{rainIntensity},
+		#{intervalRain}, #{totalRain}, #{precipitaionType}, #{windDirection}, #{windSpeed}, #{maxWindSpeed}, #{barometricPressure}, #{solarRadiation}, #{heading}, #{batteryLife})
+	</insert>
+
+</mapper>

@@ -1,0 +1,20 @@
+CREATE TABLE station_measurements (
+	measurement_id INT NOT NULL AUTO_INCREMENT,
+    station_name VARCHAR(250) NOT NULL,
+    measurement_time TIMESTAMP,
+    air_temp double PRECISION,
+    wet_bulb_temp DOUBLE PRECISION,
+    humidity DOUBLE PRECISION,
+    rain_intensity INT,
+    interval_rain DOUBLE precision,
+    total_rain DOUBLE precision,
+    preciptation_type INT,
+    wind_direction INT,
+    wind_speed DOUBLE PRECISION,
+    max_wind_speed DOUBLE PRECISION,
+    barometric_pressure DOUBLE PRECISION,
+    solar_radiation INT,
+    heading INT,
+    battery_life DOUBLE PRECISION,
+    PRIMARY KEY(measurement_id)
+);
